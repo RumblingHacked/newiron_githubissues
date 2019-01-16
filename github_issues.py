@@ -11,7 +11,7 @@ class generate_gh_issue_report(object):
         self.urls = urls
 
     def get_api_response(self):
-        ''' Takes the github url as an argument and return the json response if the status code is clear if not then None is returned '''
+        ''' Takes the github url as an argument and assigns the json response if the status code is clear if not then None is assinged '''
         headers = {'Accept': 'application/vnd.github.v3+json',
                    'User-Agent': 'Mozilla/5.0',
                    'Content-Type': 'application/json'}
@@ -74,7 +74,7 @@ class generate_gh_issue_report(object):
         top_day_dict = {"top_day": top_day}
         issues_dict = {"issues": issues_content}
         issues_dict.update(top_day_dict)
-        print(issues_dict)
+        print(json.dumps(issues_dict, indent=4))
 
 
 
